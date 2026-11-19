@@ -183,12 +183,13 @@ Esta corrección confirma por qué era necesario probar contra PostgreSQL y no s
 - [x] Build del frontend sin errores.
 - [x] Corrida de `db:migrate` y `db:seed` contra PostgreSQL real.
 - [x] Smoke test de 16 pasos contra PostgreSQL real.
-- [x] Historial local con un commit por tarea.
-- [ ] Repositorio en GitHub y publicación del backend y del frontend (falta autenticación y credenciales).
+- [x] Historial con un commit por tarea.
+- [x] Repositorio en GitHub: https://github.com/Matias29S/turnomed
+- [ ] Publicación del backend y del frontend (falta crear Neon, Render y Netlify).
 
 ## 6. Limitaciones y próximos pasos
 
-1. **Publicación.** Falta autenticarse en GitHub y crear los servicios de Neon, Render y Netlify. El README ya tiene los pasos y las variables de entorno; solo hay que completar las URL.
+1. **Publicación.** El repositorio ya está en GitHub. Falta crear los servicios de Neon, Render y Netlify. El README ya tiene los pasos y las variables de entorno; solo hay que completar las URL.
 2. **Base real.** Resuelta: PostgreSQL 17.6 se ejecutó localmente y el smoke test pasó. En Neon hay que repetir `db:migrate` y `db:seed` con las contraseñas iniciales definidas como variables de entorno.
 3. **Recordatorios.** No hay emails ni WhatsApp en esta versión; es una decisión de alcance documentada, no un olvido.
 4. **Historial de commits.** Resuelta: se creó el repositorio local con un commit por tarea siguiendo el orden de `tasks.md`.
