@@ -9,11 +9,11 @@ Sistema de turnos médicos: el paciente busca un médico, ve las franjas realmen
 
 | Parte | URL |
 |---|---|
-| Aplicación publicada | _completar después del deploy_ |
-| Backend (API) | _completar después del deploy_ |
+| Aplicación publicada | _completar con la URL de Netlify_ |
+| Backend (API) | https://turnomed-api.onrender.com |
 | Repositorio | https://github.com/Matias29S/turnomed |
 
-> **Estado actual:** documentación, código, pruebas e historial de commits están publicados en GitHub. Falta crear los servicios de Neon, Render y Netlify para completar los enlaces y publicar la aplicación.
+> **Estado actual:** base en Neon con migración y seed aplicados, backend publicado y verificado en Render, código en GitHub. Falta el enlace de Netlify para completar la publicación del frontend.
 
 > El plan gratuito de Render duerme el backend. El primer pedido puede tardar hasta 30 segundos.
 
@@ -75,7 +75,7 @@ El seed crea:
 | Médico (pediatría) | `martin.paz@turnomed.local` | `Doctor1234` |
 | Médica (dermatología) | `sofia.rios@turnomed.local` | `Doctor1234` |
 
-En producción, el seed exige `INITIAL_ADMIN_PASSWORD` e `INITIAL_DOCTOR_PASSWORD`; no usa las contraseñas de ejemplo.
+En producción, el seed exige `INITIAL_ADMIN_PASSWORD` e `INITIAL_DOCTOR_PASSWORD`; no usa las contraseñas de ejemplo. Las credenciales reales del entorno publicado se entregan por separado y no se versionan en este repositorio.
 
 ### 2. Backend
 
