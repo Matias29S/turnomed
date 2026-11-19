@@ -11,9 +11,9 @@ Sistema de turnos médicos: el paciente busca un médico, ve las franjas realmen
 |---|---|
 | Aplicación publicada | _completar después del deploy_ |
 | Backend (API) | _completar después del deploy_ |
-| Repositorio | _completar después de subir a GitHub_ |
+| Repositorio | https://github.com/Matias29S/turnomed |
 
-> **Estado actual:** documentación, código, pruebas e historial de commits están listos. Falta autenticarse en GitHub y crear los servicios de Neon, Render y Netlify para completar los enlaces y publicar.
+> **Estado actual:** documentación, código, pruebas e historial de commits están publicados en GitHub. Falta crear los servicios de Neon, Render y Netlify para completar los enlaces y publicar la aplicación.
 
 > El plan gratuito de Render duerme el backend. El primer pedido puede tardar hasta 30 segundos.
 
