@@ -9,11 +9,11 @@ Sistema de turnos médicos: el paciente busca un médico, ve las franjas realmen
 
 | Parte | URL |
 |---|---|
-| Aplicación publicada | _completar con la URL de Netlify_ |
+| Aplicación publicada | https://vocal-alfajores-d3b5cd.netlify.app |
 | Backend (API) | https://turnomed-api.onrender.com |
 | Repositorio | https://github.com/Matias29S/turnomed |
 
-> **Estado actual:** base en Neon con migración y seed aplicados, backend publicado y verificado en Render, código en GitHub. Falta el enlace de Netlify para completar la publicación del frontend.
+> **Estado actual:** base en Neon con migración y seed aplicados, backend verificado en Render, código en GitHub y frontend desplegado en Netlify. Para terminar hay que desactivar la protección con contraseña de Netlify y quitar la barra final de `FRONTEND_URL` en Render.
 
 > El plan gratuito de Render duerme el backend. El primer pedido puede tardar hasta 30 segundos.
 

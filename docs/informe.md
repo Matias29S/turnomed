@@ -187,11 +187,11 @@ Esta corrección confirma por qué era necesario probar contra PostgreSQL y no s
 - [x] Repositorio en GitHub: https://github.com/Matias29S/turnomed
 - [x] Base en Neon con migración y seed aplicados.
 - [x] Backend publicado en Render: https://turnomed-api.onrender.com
-- [ ] Frontend publicado en Netlify (falta completar la URL).
+- [ ] Frontend verificado en Netlify: https://vocal-alfajores-d3b5cd.netlify.app (el sitio responde 401 por la protección con contraseña y el CORS de Render tiene una barra final de más en `FRONTEND_URL`).
 
 ## 6. Limitaciones y próximos pasos
 
-1. **Publicación.** Ya están la base en Neon, el backend en Render y el repositorio en GitHub. Falta el deploy del frontend en Netlify y completar su URL en el README.
+1. **Publicación.** Ya están la base en Neon, el backend en Render, el repositorio en GitHub y el sitio en Netlify. Quedan dos ajustes de configuración: desactivar la protección con contraseña de Netlify y quitar la barra final de `FRONTEND_URL` en Render para que el CORS y la cookie funcionen.
 2. **Base real.** Resuelta: PostgreSQL 17.6 se ejecutó localmente y el smoke test pasó. En Neon hay que repetir `db:migrate` y `db:seed` con las contraseñas iniciales definidas como variables de entorno.
 3. **Recordatorios.** No hay emails ni WhatsApp en esta versión; es una decisión de alcance documentada, no un olvido.
 4. **Historial de commits.** Resuelta: se creó el repositorio local con un commit por tarea siguiendo el orden de `tasks.md`.
