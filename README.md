@@ -13,7 +13,7 @@ Sistema de turnos médicos: el paciente busca un médico, ve las franjas realmen
 | Backend (API) | https://turnomed-api.onrender.com |
 | Repositorio | https://github.com/Matias29S/turnomed |
 
-> **Estado actual:** base en Neon con migración y seed aplicados, backend verificado en Render, código en GitHub y frontend desplegado en Netlify. Para terminar hay que desactivar la protección con contraseña de Netlify y quitar la barra final de `FRONTEND_URL` en Render.
+> **Estado actual:** base en Neon, backend en Render, frontend en Netlify y código en GitHub, todo verificado. El login entre dominios distintos funciona con CORS restringido y cookie `HttpOnly; Secure; SameSite=None`.
 
 > El plan gratuito de Render duerme el backend. El primer pedido puede tardar hasta 30 segundos.
 

@@ -170,6 +170,20 @@ Se corrigió agregando una constante `APPOINTMENT_RETURNING` sin alias para esos
 
 Esta corrección confirma por qué era necesario probar contra PostgreSQL y no solo contra el doble en memoria: los tests unitarios estaban en verde mientras el flujo principal de reserva estaba roto.
 
+### 4.7 Verificación del deploy
+
+Con la app publicada se corrió una última verificación contra los servicios reales:
+
+| Comprobación | Resultado |
+|---|---|
+| Sitio de Netlify | 200 y bundle apuntando a `https://turnomed-api.onrender.com` |
+| `GET /api/health` en Render | 200 `{ "ok": true }` |
+| Catálogos, disponibilidad, login de ambos roles, usuarios, métricas, agenda y 401 en rutas privadas | 10/10 correctos |
+| CORS con el `Origin` de Netlify | `access-control-allow-origin` exacto y `access-control-allow-credentials: true` |
+| `POST /api/auth/login` desde el origin de Netlify | 200 con cookie `HttpOnly; Secure; SameSite=None` |
+
+Durante el deploy aparecieron tres incidencias de configuración, ya resueltas: `DATABASE_URL` apuntaba a la URL del propio backend en vez de la cadena de Neon, `FRONTEND_URL` tenía una barra final que rompía la coincidencia del `Access-Control-Allow-Origin`, y el sitio de Netlify respondía 401 hasta que se publicó sin restricciones.
+
 ## 5. Checklist de entrega
 
 - [x] Documentación completa y sin pendientes.
@@ -187,15 +201,16 @@ Esta corrección confirma por qué era necesario probar contra PostgreSQL y no s
 - [x] Repositorio en GitHub: https://github.com/Matias29S/turnomed
 - [x] Base en Neon con migración y seed aplicados.
 - [x] Backend publicado en Render: https://turnomed-api.onrender.com
-- [ ] Frontend verificado en Netlify: https://vocal-alfajores-d3b5cd.netlify.app (el sitio responde 401 por la protección con contraseña y el CORS de Render tiene una barra final de más en `FRONTEND_URL`).
+- [x] Frontend verificado en Netlify: https://vocal-alfajores-d3b5cd.netlify.app
+- [x] Integración entre dominios verificada: CORS con el origin exacto y cookie `HttpOnly; Secure; SameSite=None` en el login.
 
 ## 6. Limitaciones y próximos pasos
 
-1. **Publicación.** Ya están la base en Neon, el backend en Render, el repositorio en GitHub y el sitio en Netlify. Quedan dos ajustes de configuración: desactivar la protección con contraseña de Netlify y quitar la barra final de `FRONTEND_URL` en Render para que el CORS y la cookie funcionen.
+1. **Publicación.** Resuelta: base en Neon, backend en Render, frontend en Netlify y repositorio en GitHub, con verificación de extremo a extremo. Queda únicamente renovar las credenciales de demo cuando se considere necesario.
 2. **Base real.** Resuelta: PostgreSQL 17.6 se ejecutó localmente y el smoke test pasó. En Neon hay que repetir `db:migrate` y `db:seed` con las contraseñas iniciales definidas como variables de entorno.
 3. **Recordatorios.** No hay emails ni WhatsApp en esta versión; es una decisión de alcance documentada, no un olvido.
 4. **Historial de commits.** Resuelta: se creó el repositorio local con un commit por tarea siguiendo el orden de `tasks.md`.
 
 ## 7. Conclusión
 
-El proyecto cumple el objetivo de la consigna: un sistema con reglas de negocio reales, documentación que se puede leer sin abrir el código, una suite que prueba lo que se afirma y una corrida real que confirmó el flujo completo de reserva. Lo que falta es la publicación, que depende de cuentas y credenciales externas.
+El proyecto cumple el objetivo de la consigna: un sistema con reglas de negocio reales, documentación que se puede leer sin abrir el código, una suite que prueba lo que se afirma, una corrida real que confirmó el flujo completo de reserva y una versión publicada y verificada de extremo a extremo.
